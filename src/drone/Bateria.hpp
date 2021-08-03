@@ -2,16 +2,21 @@
 #define BATERIA_H
 
 class Bateria{
-    public:
-        Bateria(int mah, int tempoDeCarregamento);
-        ~Bateria();
-        bool carregar(int tempo);
-        bool usar(int tempo);
-        int getMah();
-        int getCarga();
-        int calculaTempoDeVoo();
-        int getTempoDeCarregamento();
-        void status();
+public:
+    Bateria(int mah, int tempoDeCarregamento);
+    ~Bateria();
+    void carregar(int tempo);
+    bool usar(int tempo);
+    int calculaTempoDeVoo();
+
+    int getCarga();
+    int getTempoDeCarregamento();
+    bool getUso();
+    bool getCarregavel();
+
+    void setUso(bool uso);
+    void setCarregavel(bool carregavel);
+    void status();
 };
 
 #endif

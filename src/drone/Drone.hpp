@@ -6,18 +6,18 @@
 using namespace std;
 
 class Drone{
-    public:
-        Drone(string nome, Bateria* bateria, double posicao);
-        virtual ~Drone();
 
-        void takeoff(int altura);
-        void land();
-        bool setPosition(double x, double y);
-        double getPosicao();
-        double getAltura();
-        Bateria *getBateria();
-        virtual bool mapear();
-        void status();
+public:
+    Drone(string nome, Bateria* bateria, double posicao);
+    virtual ~Drone();
+
+    void takeoff(int altura);
+    void land();
+    void setPosition(double x, double y);
+    double getPosicao();
+    double getAltura();
+    virtual int mapear();
+    void status();
 };
 
 #endif

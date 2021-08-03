@@ -32,7 +32,7 @@ function confere_se_maior_igual {
     exit 1
 }
 
-CMAKE_BIN_PATH=/home/tomaz/Downloads/cmake-3.21.1-linux-x86_64/bin
+CMAKE_BIN_PATH=cmake/bin
 EXECUTABLE_NAME=EP_LabOO
 
 if [ $# -eq 0 ]
