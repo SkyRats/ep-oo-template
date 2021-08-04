@@ -1,73 +1,64 @@
 # Exercício Programa - Programação Orientada a Objeto
 
-## Procedimento para utilização do repositório no Ubuntu
-Esse template foi desenvolvido com intuito de facilitar a compilação e a correção do EP.
+Esse template foi desenvolvido com intuito de facilitar a compilação e a correção do EP. Lembre-se que seus veteranos continuam totalmente disponíveis para ajudá-los com o entendimento ou execução do EP.
 
-Lembre-se que seus veteranos continuam totalmente disponíveis para ajuda-los.
+## Instalação
 
-### 1. Use this template
-Primeiramente aperte no botão verde "use this template" e crie esse repositório no seu github pessoal.
+1. Crie uma cópia deste *template* na sua conta pessoal do GitHub clicando no botão *Use this template*;
 
-### 2. Git clone
-No seu github pessoal, acesse o repositório criado e adquira o link dele em "Code" -> "HTTPS".
+    ![Botão para usar o *template* de repositório fornecido](github/template.png "Você deve clicar no botão ao lado de Code e selecionar sua conta pessoal")
 
-Por exemplo: https://github.com/User/TemplateOO.git
+2. Clone o repositório criado, lembrando que a URL do seu repositório pessoal pode ser acessada por meio do botão *Code* na aba HTTPS;
+    ![Forma de acessar o link do repositório](github/clone.png "Clique em Code > HTTPS para acessar a URL para clonar seu repositório")
+    ```bash
+    # tomando como exemplo o reporitorio de URL
+    # https://github.com/User/TemplateOO.git
+    $ git clone https://github.com/User/TemplateOO.git
+    ```
 
-E no seu terminal, no diretório em que deseja armazena-lo rode:
+3. Instale os requisitos de execução.
+
+    Os requisitos diferem entre o desenvolvimento em C++ e em Python.
+
+    1. Python
+
+        Caso não tenha ainda, é necessário instalar o próprio Python; além disso, é necessário instalar o gerenciador de pacotes de Python `pip` e o pacote `pytest`. Isso pode ser feito com os comandos:
+        ```bash
+        $ sudo apt install python pip -y
+        $ pip install pytest
+        ```
+
+    2. C++
+
+        Um script de instalação da ferramente de build CMake foi fornecido com esse repositório; devemos torná-lo executável e executá-lo.
+        ```bash
+        $ chmod +x install_cmake.sh
+        $ ./install_cmake.sh
+        ```
+
+## Desenvolvimento
+
+### Python
+
+Os arquivos `bateria.py`, `drone.py`, `s1000.py` e `main.py` com os as assinaturas das funções requisitadas no enunciado foram fornecidos na pasta `scripts/`. É importante que você **não modifique** as assinaturas fornecidas, mas você pode adicionar tantos arquivos, classes, métodos ou atributos quanto desejar.
+
+### C++
+
+Os *headers* com assinaturas das classes e métodos públicos e arquivos de código fonte vazios foram fornecidos na pasta `src/drone`, além de uma `main.cpp` fornecida em `src/`. É importante que você **não modifique** as assinaturas fornecidas **nem mova qualquer um dos arquivos fornecidos**, porque isso vai afetar o processo de *build* com o CMake. Contudo, você pode adicionar tantas classes, métodos ou atributos quanto desejar.
+
+Para facilitar o processo de compilação com vários arquivos colocados em várias pastas, usamos uma ferramenta de *build* chamada CMake (por isso todos esses `CMakeLists.txt` por todas as pastas). Para simplificar o seu uso, fornecemos o script *bash* `utils.sh`. Um exemplo de uso do script é:
 ```bash
-git clone https://github.com/User/TemplateOO.git
+$ chmod +x utils.sh
+$ ./utils.sh -c ./ build # cria pasta build com arquivos do CMake analisados
+$ ./utils.sh -b build # compila o seu codigo
+$ ./utils.sh -r # roda o executavel gerado por main.cpp
 ```
 
-### 3. Instruções para C++
-#### Install CMake
-Dentro do diretório criado rode:
+Outras opções disponíveis podem ser acessadas por meio da flag `-h` ou `--help`.
 ```bash
-chmod -x utils.sh install_cmake.sh
-./install_cmake.sh
+$ ./utils.sh -h # ou ./utils.sh --help
 ```
 
-Com o cmake instalado você está pronto para desenvolver seu EP.
+## Testes
 
-O esqueleto do seu código está na pasta src/drone.
-#### Funções disponiveis 
-Para compilar, rodar e testar seu código use as seguintes funções:
-
-- Help: Lista as funções disponíveis
-```bash
-./utils.sh -h
-```
-
-- Analisa CMakeLists: Antes da compilação essa etapa é necessária. (Testes são desabilitados)
-```bash
-./utils.sh -c ./ build
-```
-
-- Build: Compila 
-```bash
-./utils.sh -b build
-```
-- Run: Roda o programa
-```bash
-./utils.sh -r
-```
-- Habilita os testes: Após habilitar os testes lembre de buildar novamente 
-```bash
-./utils.sh -C build
-```
-
-- Testa: Corrige seu EP
-```bash
-./utils.sh -t
-```
-
-- Testa (modo verborrágico): Corrige seu EP e te mostra com detalhes a verificação
-```bash
-./utils.sh -vt
-```
-
-- Build and Run: Compila e roda o código
-```bash
-./utils.sh --build -and-run
-```
-
-### 4. Instruções para Python
+Os testes serão disponibilizados em breve tanto para C++ quanto para Python.
