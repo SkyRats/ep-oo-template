@@ -5,19 +5,22 @@
 #include <string>
 using namespace std;
 
-class Drone{
-
+class Drone {
 public:
     Drone(string nome, Bateria* bateria, double posicao);
     virtual ~Drone();
 
     void takeoff(int altura);
+    bool setPosition(double x, double y);
     void land();
-    void setPosition(double x, double y);
+    virtual bool mapear();
+    void status();
+
+    string getNome();
+    Bateria* getBateria();
     double getPosicao();
     double getAltura();
-    virtual int mapear();
-    void status();
+    bool getDecolado();
 };
 
 #endif
