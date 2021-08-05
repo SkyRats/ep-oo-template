@@ -24,7 +24,7 @@ Esse template foi desenvolvido com intuito de facilitar a compilação e a corre
 
         Caso não tenha ainda, é necessário instalar o próprio Python; além disso, é necessário instalar o gerenciador de pacotes de Python `pip` e o pacote `pytest`. Isso pode ser feito com os comandos:
         ```bash
-        $ sudo apt install python pip -y
+        $ sudo apt install python python-pip -y
         $ pip install pytest
         ```
 
@@ -61,4 +61,22 @@ $ ./utils.sh -h # ou ./utils.sh --help
 
 ## Testes
 
-Os testes serão disponibilizados em breve tanto para C++ quanto para Python.
+### C++
+
+É preciso renalisar os arquivos do CMake habilitando os testes. Isso é feito com a flag `-C` do script fornecido. Com isso, basta compilar seu código e os testes realizando o *build* como antes.
+```bash
+./utils.sh -C ./ build
+./utils.sh -b build
+```
+
+As flags `-t`  e `-vt`  podem ser usadas para executar os testes depois de compilá-los.
+```bash
+./utils.sh -t
+./utils.sh -vt
+```
+
+Vale notar que o tempo de build aumenta um pouco com os testes. Caso isso incomode você, é recomendado somente habilitar os testes quando achar que terminou a implementação de uma função da interface.
+
+### Python
+
+Os testes serão disponibilizados em breve.
