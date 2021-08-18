@@ -54,9 +54,30 @@ $ ./utils.sh -b build # compila o seu codigo
 $ ./utils.sh -r # roda o executavel gerado por main.cpp
 ```
 
-Outras opções disponíveis podem ser acessadas por meio da flag `-h` ou `--help`.
-```bash
-$ ./utils.sh -h # ou ./utils.sh --help
+#### Como utilizar o script?
+
+Primeiramente, em caso de dúvida, utilize a flag `--help` ou `-h` para ter acesso a descrição das funcionalidades desse script com seus respectivos argumentos.
+
+```
+$ ./utils.sh –-help
+Utilizacao
+./utils.sh [-h -r -t] [-vt] [-c | -C source_dir build_dir] [-b build_dir]
+-h | --help
+  Imprime esta mensagem
+-r | --run
+  Executa o programa compilado em C++
+-t | --test
+  Executa os testes fornecidos no diretorio test/
+-vt | --verbose-test
+  Executa os testes e mostra saida dos casos de falha
+-c  source_dir build_dir
+  Reanaliza os arquivos CMakeLists.txt
+-C source_dir build_dir
+  Reanaliza os arquivos CMakeLists.txt e habilita testes
+-b | --build build_dir
+  Compila os arquivos C++ para serem executados
+--build-and-run build_dir
+  Compila os arquivos C++ e executa o programa gerado
 ```
 
 ## Testes
