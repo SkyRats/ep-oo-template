@@ -73,6 +73,22 @@ TEST_F(BateriaTest, Usar){
     ASSERT_EQ(0, bateria->getCarga());
 }
 
+TEST_F(BateriaTest, CalculaTempoDeVoo) {
+    ASSERT_EQ(0, bateria->calculaTempoDeVoo());
+
+    bateria->carregar(0);
+    ASSERT_EQ(0, bateria->calculaTempoDeVoo());
+
+    bateria->carregar(BateriaTest::TEMPO_CARGA/2);
+    ASSERT_EQ(BateriaTest::TEMPO_CARGA/2, bateria->calculaTempoDeVoo());
+
+    bateria->carregar(BateriaTest::TEMPO_CARGA/2);
+    ASSERT_EQ(BateriaTest::TEMPO_CARGA, bateria->calculaTempoDeVoo());
+
+    bateria->usar(BateriaTest::TEMPO_CARGA/2);
+    ASSERT_EQ(BateriaTest::TEMPO_CARGA/2, bateria->calculaTempoDeVoo());
+}
+
 class DroneTest : public ::testing::Test {
     public:
         Bateria *bateria;
