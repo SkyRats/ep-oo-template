@@ -1,4 +1,7 @@
 build/
+src/
+scripts/
+
 cmake/
 !cmake/.gitkeep
 
