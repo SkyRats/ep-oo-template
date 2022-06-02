@@ -19,13 +19,9 @@ def test_construtor():
     assert get_attr(BATERIA, 'mah') == CAPACIDADE
     assert get_attr(BATERIA, 'tempoDeCarregamento') == TEMPO_CARGA
     assert get_attr(BATERIA, 'carga') == 0
-    assert BATERIA.calcula_tempo_de_voo() == 0
+    assert BATERIA.calculaTempoDeVoo() == 0
 
 def test_carregar():
-    status_carregamento = BATERIA.carregar(0)
-    assert not status_carregamento
-    assert get_attr(BATERIA, 'carga') == 0
-
     status_carregamento = BATERIA.carregar(TEMPO_CARGA/2)
     assert status_carregamento
     assert get_attr(BATERIA, 'carga') == CAPACIDADE/2
@@ -56,5 +52,5 @@ def test_usar():
     assert get_attr(BATERIA, 'carga') == 0
 
     status_uso = BATERIA.usar(TEMPO_CARGA/2)
-    assert status_uso
+    assert not status_uso
     assert get_attr(BATERIA, 'carga') == 0
