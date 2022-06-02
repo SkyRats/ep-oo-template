@@ -100,4 +100,12 @@ Vale notar que o tempo de build aumenta um pouco com os testes. Caso isso incomo
 
 ### Python
 
-Os testes serão disponibilizados em breve.
+Para testar sua solução em python, navegue até o diretório _test_ no terminal e rode o seguinte comando, caso queira testar todos os objetos da solução:
+```
+pytest
+```
+Caso queira testar um objeto individual:
+```
+pytest test_<Objeto>.py
+```
+
